@@ -39,6 +39,11 @@ jobs:
       with:
          name: Depcheck report
          path: ${{github.workspace}}/reports
+    - name: Run Dastardly Action Step
+      uses: PortSwigger/dastardly-github-action@main
+      with:
+        target-url: 'https://ginandjuice.shop' 
+      
   semgrep:
       name: semgrep/ci
       runs-on: ubuntu-20.04
