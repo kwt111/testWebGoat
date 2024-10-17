@@ -50,5 +50,23 @@ jobs:
       steps:
         - uses: actions/checkout@v4
         - run: semgrep ci
-    
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with: {fetch-depth: 0}
+  
+      - name: Check for GitLeaks
+        uses: gacts/gitleaks@v1
+        #id: gitleaks
+        #with:
+        #  version: latest
+        #  config-path: .github/.gitleaks.toml
+        #  path: any/directory/path
+  
+      #- if: ${{ always() }} # reason - https://github.com/gitleaks/gitleaks/issues/782
+      #  uses: github/codeql-action/upload-sarif@v2
+      #  with:
+      #    sarif_file: ${{ steps.gitleaks.outputs.sarif }}
+      
       
