@@ -39,10 +39,7 @@ jobs:
       with:
          name: Depcheck report
          path: ${{github.workspace}}/reports
-    - name: Run Dastardly Action Step
-      uses: PortSwigger/dastardly-github-action@main
-      with:
-        target-url: 'https://ginandjuice.shop' 
+     
       
   semgrep:
       name: semgrep/ci
@@ -73,6 +70,13 @@ jobs:
       #  uses: github/codeql-action/upload-sarif@v2
       #  with:
       #    sarif_file: ${{ steps.gitleaks.outputs.sarif }}
+  destardly:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Dastardly Action Step
+      uses: PortSwigger/dastardly-github-action@main
+      with:
+        target-url: 'https://ginandjuice.shop'
   owaspZap:
     runs-on: ubuntu-latest
     steps:
